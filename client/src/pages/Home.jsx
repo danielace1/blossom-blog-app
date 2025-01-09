@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { LuDot } from "react-icons/lu";
+import MainCategories from "../components/MainCategories";
+import FeaturedPosts from "../components/FeaturedPosts";
 
 const Home = () => {
   return (
@@ -59,7 +61,10 @@ const Home = () => {
           </button>
         </Link>
       </div>
+      {/* CATEGORIES */}
+      <MainCategories />
       {/* FEATURED POSTS */}
+      <FeaturedPosts />
       {/* POST LIST */}
     </div>
   );
