@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { FiLogIn } from "react-icons/fi";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 import Image from "./Image";
-
 const TheNavbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
-      <div className="flex items-center md:gap-3 text-2xl font-bold">
+      <Link to="/" className="flex items-center md:gap-3 text-2xl font-bold">
         <Image
           src="logo.png"
           alt="blossom blog"
@@ -18,8 +24,8 @@ const TheNavbar = () => {
           w={32}
           h={32}
         />
-        <span>Blossom Blog</span>
-      </div>
+        <span>Blossom Blogs</span>
+      </Link>
 
       {/* mobile nav */}
       <div className="md:hidden" onClick={() => setOpen((prev) => !prev)}>
@@ -39,31 +45,37 @@ const TheNavbar = () => {
             open ? "-right-0" : "translate-x-full"
           }`}
         >
-          <a href="/">Home</a>
-          <a href="/">Trending</a>
-          <a href="/">Most Popular</a>
-          <a href="/">About</a>
-          <a href="/">
+          <Link to="/">Home</Link>
+          <Link to="/">Trending</Link>
+          <Link to="/">Most Popular</Link>
+          <Link to="/">About</Link>
+          <Link to="/">
             <button className="flex items-center py-2 px-4 rounded-3xl bg-blue-800 hover:bg-blue-900 text-white ">
               <FiLogIn className="text-lg mr-2" />
               Login
             </button>
-          </a>
+          </Link>
         </div>
       </div>
 
       {/* desktop nav */}
       <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
-        <a href="/">Home</a>
-        <a href="/">Trending</a>
-        <a href="/">Most Popular</a>
-        <a href="/">About</a>
-        <a href="/">
-          <button className="flex items-center py-2 px-4 rounded-3xl bg-blue-800 hover:bg-blue-900 text-white ">
-            <FiLogIn className="text-lg mr-2" />
-            Login
-          </button>
-        </a>
+        <Link to="/">Home</Link>
+        <Link to="/">Trending</Link>
+        <Link to="/">Most Popular</Link>
+        <Link to="/">About</Link>
+        <SignedOut>
+          <Link to="/login">
+            <button className="flex items-center py-2 px-4 rounded-3xl bg-blue-800 hover:bg-blue-900 text-white ">
+              <FiLogIn className="text-lg mr-2" />
+              Login
+            </button>
+          </Link>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   );
