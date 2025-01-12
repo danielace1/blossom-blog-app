@@ -18,19 +18,19 @@ const MainCategories = () => {
           Web Design
         </Link>
         <Link
-          to="/posts?category=web-design"
+          to="/posts?category=development"
           className="hover:bg-blue-50 rounded-full px-4 py-2"
         >
           Development
         </Link>
         <Link
-          to="/posts?category=web-design"
+          to="/posts?category=databases"
           className="hover:bg-blue-50 rounded-full px-4 py-2"
         >
           Databases
         </Link>
         <Link
-          to="/posts?category=web-design"
+          to="/posts?category=seo"
           className="hover:bg-blue-50 rounded-full px-4 py-2"
         >
           Search Engines

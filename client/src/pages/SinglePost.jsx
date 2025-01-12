@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Image from "../components/Image";
 import PostMenuActions from "../components/PostMenuActions";
 import Search from "../components/Search";
+import Comments from "../components/Comments";
 
 const SinglePost = () => {
   return (
@@ -66,9 +67,40 @@ const SinglePost = () => {
             tempora, placeat nesciunt. Veniam voluptatum sequi asperiores
             numquam iste!
           </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
+            sunt ratione veritatis molestiae exercitationem non vel ea veniam,
+            minus similique omnis tempora, placeat nesciunt. Veniam voluptatum
+            sequi asperiores numquam iste! Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Nostrum sunt ratione veritatis
+            molestiae exercitationem non vel ea veniam, minus similique omnis
+            tempora, placeat nesciunt. Veniam voluptatum sequi asperiores
+            numquam iste!
+          </p>
+
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
+            sunt ratione veritatis molestiae exercitationem non vel ea veniam,
+            minus similique omnis tempora, placeat nesciunt. Veniam voluptatum
+            sequi asperiores numquam iste! Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Nostrum sunt ratione veritatis
+            molestiae exercitationem non vel ea veniam, minus similique omnis
+            tempora, placeat nesciunt. Veniam voluptatum sequi asperiores
+            numquam iste!
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum
+            sunt ratione veritatis molestiae exercitationem non vel ea veniam,
+            minus similique omnis tempora, placeat nesciunt. Veniam voluptatum
+            sequi asperiores numquam iste! Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Nostrum sunt ratione veritatis
+            molestiae exercitationem non vel ea veniam, minus similique omnis
+            tempora, placeat nesciunt. Veniam voluptatum sequi asperiores
+            numquam iste!
+          </p>
         </div>
 
-        <div className="px-4 h-max sticky">
+        <div className="px-4 h-max sticky top-5">
           <h1 className="mb-3 text-sm font-medium">Author</h1>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-5">
@@ -109,6 +141,7 @@ const SinglePost = () => {
           <Search />
         </div>
       </div>
+      <Comments />
     </div>
   );
 };

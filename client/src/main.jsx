@@ -5,9 +5,9 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import "./index.css";
 
 import Home from "./pages/Home.jsx";
-import PostList from "./pages/PostList.jsx";
 import SinglePost from "./pages/SinglePost.jsx";
 import WriteBlog from "./pages/WriteBlog.jsx";
+import PostListPage from "./pages/PostListPage.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/posts",
-        element: <PostList />,
+        element: <PostListPage />,
       },
       {
         path: "/:slug",
