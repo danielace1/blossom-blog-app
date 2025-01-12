@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 const MainCategories = () => {
   return (
-    <div className="hidden md:flex bg-white rounded-3xl xl:rounded-full px-3 py-4 shadow-lg items-center justify-center gap-8">
+    <div className="hidden md:flex bg-white rounded-full xl:rounded-full p-3 lg:p-4 shadow-lg items-center justify-center gap-8">
       {/* links */}
-      <div className="flex-1 flex justify-center items-center flex-wrap">
+      <div className="flex-1 flex justify-center lg:justify-between items-center flex-wrap">
         <Link
           to="/posts"
           className="bg-blue-800 text-white rounded-full px-4 py-2"

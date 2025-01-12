@@ -16,7 +16,10 @@ const TheNavbar = () => {
 
   return (
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
-      <Link to="/" className="flex items-center md:gap-3 text-2xl font-bold">
+      <Link
+        to="/"
+        className="flex items-center md:gap-3 text-2xl lg:text-3xl font-bold"
+      >
         <Image
           src="logo.png"
           alt="blossom blog"

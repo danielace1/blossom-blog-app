@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { LuDot } from "react-icons/lu";
 import MainCategories from "../components/MainCategories";
 import FeaturedPosts from "../components/FeaturedPosts";
+import PostList from "./PostList";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
         <LuDot className="text-lg" />
         <span className="text-blue-500">Blogs and Articles</span>
       </div>
-      {/* INTRRODUCTION */}
+      {/* INTRODUCTION */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-gray-800 text-2xl md:text-4xl lg:text-5xl font-bold">
@@ -66,6 +67,10 @@ const Home = () => {
       {/* FEATURED POSTS */}
       <FeaturedPosts />
       {/* POST LIST */}
+      <div>
+        <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
+        <PostList />
+      </div>
     </div>
   );
 };

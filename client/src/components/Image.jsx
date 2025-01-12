@@ -8,12 +8,15 @@ const Image = ({ src, className, alt, w, h }) => {
     <IKImage
       urlEndpoint={IK_ENDPOINT}
       path={src}
-      alt={alt}
+      alt={alt || "Image"}
       loading="lazy"
       lqip={{ active: true, quality: 20 }}
       className={className}
       width={w}
       height={h}
+      transformation={[
+        
+      ]}
     />
   );
 };
