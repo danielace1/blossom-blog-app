@@ -11,7 +11,11 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^2.0.2",
     "express": "^5.0.1",
-    "mongoose": "^8.9.4"
+    "mongoose": "^8.9.4",
+    "parser": "^0.1.4",
+    "svix": "^1.45.1"
   }
 }
