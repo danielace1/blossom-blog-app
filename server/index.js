@@ -1,4 +1,6 @@
 import express from "express";
+import cors from "cors";
+import { clerkMiddleware } from "@clerk/express";
 import connectDB from "./lib/connectDB.js";
 import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
@@ -7,8 +9,25 @@ import webHookRouter from "./routes/webhook.route.js";
 
 const app = express();
 const PORT = process.env.PORT;
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+app.use(clerkMiddleware());
 app.use("/webhooks", webHookRouter);
+
 app.use(express.json());
+
+// app.get("/protected", (req, res) => {
+//   const { userId } = req.auth;
+//   if (!userId) {
+//     return res.status(401).json({ message: "Unauthorized" });
+//   }
+//   res.json({ message: "Protected route", userId });
+// });
 
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
