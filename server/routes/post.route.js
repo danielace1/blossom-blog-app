@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  uploadAuth,
   getPosts,
   getPost,
   createPost,
@@ -7,6 +8,8 @@ import {
 } from "../controllers/post.controller.js";
 
 const router = express.Router();
+
+router.get("/upload-auth", uploadAuth);
 
 router.get("/", getPosts);
 router.get("/:slug", getPost);
