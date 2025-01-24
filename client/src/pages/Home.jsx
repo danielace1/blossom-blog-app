@@ -68,7 +68,9 @@ const Home = () => {
       <FeaturedPosts />
       {/* POST LIST */}
       <div>
-        <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
+        <h1 className="my-8 text-3xl text-gray-600 font-semibold">
+          Recent Posts
+        </h1>
         <PostList />
       </div>
     </div>

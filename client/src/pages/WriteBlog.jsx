@@ -48,7 +48,7 @@ const WriteBlog = () => {
       console.log(res);
 
       toast.success("Post created successfully");
-      // navigate(`/${res.data.post.slug}`);
+      navigate(`/${res.data.post.slug}`);
     },
   });
 
@@ -72,7 +72,6 @@ const WriteBlog = () => {
     };
 
     console.log(data);
-    console.log(cover);
 
     mutation.mutate(data);
   };

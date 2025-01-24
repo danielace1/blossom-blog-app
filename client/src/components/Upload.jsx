@@ -40,7 +40,6 @@ const Upload = ({ children, type, setProgress, setData }) => {
     const relativePath = res.filePath.replace(/^\/blogs\//, "");
     setData({ filePath: relativePath, fullPath: res.filePath });
     console.log(res);
-    console.log(relativePath);
   };
 
   return (
