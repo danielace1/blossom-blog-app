@@ -28,6 +28,8 @@ const PostMenuActions = ({ post }) => {
     },
   });
 
+  const isAdmin = user?.publicMetadata?.role === "admin" || false;
+
   const isSaved = useMemo(
     () => savedPosts?.data?.some((p) => p === post._id) || false,
     [savedPosts, post._id]
@@ -125,7 +127,8 @@ const PostMenuActions = ({ post }) => {
           )}
         </div>
       )}
-      {user && post?.user.username === user.username && (
+
+      {user && (post?.user?.username === user.username || isAdmin) && (
         <div
           onClick={handleDelete}
           className="flex items-center gap-2 py-2 text-sm cursor-pointer"

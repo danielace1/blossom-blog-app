@@ -13,6 +13,8 @@ export const addComment = async (req, res) => {
   const clerkUserId = req.auth.userId;
   const postId = req.params.postId;
 
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+
   if (!clerkUserId) {
     return res.status(401).json({ message: "Unauthorized" });
   }
@@ -40,9 +42,16 @@ export const deleteComment = async (req, res) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
-  const user = User.findOne({ clerkUserId });
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
 
-  const deleteComment = await User.findOneAndDelete({
+  if (role === "admin") {
+    await Comment.findByIdAndDelete(id);
+    return res.status(200).json({ message: "Comment deleted successfully" });
+  }
+
+  const user = await User.findOne({ clerkUserId });
+
+  const deleteComment = await Comment.findOneAndDelete({
     _id: id,
     user: user._id,
   });

@@ -10,7 +10,6 @@ const Comments = ({ postId }) => {
   const [comments, setComments] = useState("");
   const { user } = useUser();
   const { getToken } = useAuth();
-  const queryClient = useQueryClient();
 
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
@@ -19,6 +18,8 @@ const Comments = ({ postId }) => {
       return res.data;
     },
   });
+
+  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: async (newComment) => {
@@ -90,7 +91,7 @@ const Comments = ({ postId }) => {
             />
           )}
           {data?.map((comment) => (
-            <Comment key={comment._id} comment={comment} />
+            <Comment key={comment._id} comment={comment} postId={postId} />
           ))}
         </>
       )}

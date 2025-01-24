@@ -3,8 +3,14 @@ import User from "../models/user.model.js";
 export const getUserSavedPosts = async (req, res) => {
   const clerkUserId = req.auth.userId;
 
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+
   if (!clerkUserId) {
     return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  if (role === "admin") {
+    return res.status(200).json({ savedPosts: [] });
   }
 
   const user = await User.findOne({ clerkUserId });
