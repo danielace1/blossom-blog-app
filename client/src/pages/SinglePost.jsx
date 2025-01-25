@@ -52,72 +52,7 @@ const SinglePost = () => {
 
       <div className="flex flex-col md:flex-row gap-12">
         <div className="lg:text-lg flex flex-col gap-6 text-justify">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-            ipsam molestiae consectetur officia reprehenderit repellat delectus,
-            quasi accusamus impedit minus reiciendis necessitatibus corporis
-            harum, animi quod, nemo laborum explicabo iusto?
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: data?.content }} />
         </div>
 
         <div className="px-4 h-max sticky top-5">
@@ -136,10 +71,6 @@ const SinglePost = () => {
                 {data?.user?.username}
               </Link>
             </div>
-
-            <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            </p>
 
             <div className="flex gap-2">
               <Link to="">
