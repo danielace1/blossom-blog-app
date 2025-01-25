@@ -17,11 +17,12 @@ const Home = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-gray-800 text-2xl md:text-4xl lg:text-5xl font-bold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Welcome to Blossom Blog! 🌼
           </h1>
           <p className="mt-3 md:mt-5 md:text-xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia
-            aliquam sunt asperiores similique facere exercitationem veritatis?
+            Discover a world of stories and ideas, perfect for inspiration,
+            entertainment, or relaxation. Dive into our latest articles and
+            creative projects today!
           </p>
         </div>
         {/* animated button */}
