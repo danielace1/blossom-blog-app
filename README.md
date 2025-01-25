@@ -1,18 +1,18 @@
 # 🌼Blossom Blog App
 
-Blossom Blog is a dynamic blogging platform where admins can create, feature, and manage posts, while users can explore, save, and interact with content. Built with the latest web technologies, Blossom Blog delivers a seamless and responsive user experience.
+Blossom Blog is a dynamic blogging platform where both admins and users can create, feature, and manage posts. Users can explore, save, and interact with content, while admins have additional control over featured blogs and content management. Built with the latest web technologies, Blossom Blog delivers a seamless and responsive user experience.
 
 ## ✨Features
 
 ### 👤 User Features
 
+- **✍️ Create Blogs**: Users can write and publish blogs.
 - **📰 Browse Posts**: Explore a variety of blogs on different topics.
 - **📌 Save Posts**: Save your favorite posts for easy access later.
 - **🔒 User Authentication**: Secure login and registration via Clerk.
 
 ### 🛠️ Admin Features
 
-- **✍️ Create Blogs**: Admins can write and publish blogs.
 - **⭐ Feature Blogs**: Highlight specific blogs as featured content.
 - **🗑️ Manage Content**: Edit or delete blogs as needed.
 
