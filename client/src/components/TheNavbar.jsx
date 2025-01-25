@@ -19,7 +19,7 @@ const TheNavbar = () => {
 
   useEffect(() => {
     getToken().then((token) => {
-      console.log(token);
+      // console.log(token);
     });
   }, []);
 

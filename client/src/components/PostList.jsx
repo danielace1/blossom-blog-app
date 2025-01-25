@@ -60,7 +60,7 @@ const PostList = () => {
       }
     >
       {allPosts.map((post) => (
-        <PostListItem key={post._id} post={post} />
+        <PostListItem key={post?._id} post={post} />
       ))}
     </InfiniteScroll>
   );
