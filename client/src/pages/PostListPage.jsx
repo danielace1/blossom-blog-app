@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PostList from "../components/PostList";
-import SideMenu from "../components/SIdeMenu";
+import SideMenu from "../components/SideMenu";
 
 const PostListPage = () => {
   const [open, setOpen] = useState();
