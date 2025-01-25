@@ -65,6 +65,11 @@ const Home = () => {
       {/* CATEGORIES */}
       <MainCategories />
       {/* FEATURED POSTS */}
+      <div>
+        <h1 className="my-2 text-3xl text-gray-600 font-semibold">
+          Featured Posts
+        </h1>
+      </div>
       <FeaturedPosts />
       {/* POST LIST */}
       <div>

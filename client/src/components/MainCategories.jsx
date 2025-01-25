@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IoSearch } from "react-icons/io5";
+import Search from "./Search";
 const MainCategories = () => {
   return (
     <div className="hidden md:flex bg-white rounded-full xl:rounded-full p-3 lg:p-4 shadow-lg items-center justify-center gap-8">
@@ -38,14 +38,7 @@ const MainCategories = () => {
       </div>
       <span className="text-black font-semibold">|</span>
       {/* search */}
-      <div className="relative">
-        <IoSearch className="absolute bottom-3 left-3" />
-        <input
-          type="text"
-          placeholder="Search a post..."
-          className="bg-gray-100 px-8 py-2 rounded-full outline-none"
-        />
-      </div>
+      <Search />
     </div>
   );
 };

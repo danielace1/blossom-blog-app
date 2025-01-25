@@ -7,8 +7,63 @@ export const getPosts = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 5;
 
-  const posts = await Post.find()
+  const query = {};
+
+  const cat = req.query.category;
+  const author = req.query.author;
+  const searchQuery = req.query.search;
+  const sortQuery = req.query.sort;
+  const featured = req.query.featured;
+
+  if (cat) {
+    query.category = cat;
+  }
+
+  if (author) {
+    const user = await User.findOne({ username: author }).select("_id");
+
+    if (!user) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    query.user = user._id;
+  }
+
+  if (searchQuery) {
+    query.title = { $regex: searchQuery, $options: "i" };
+  }
+
+  let sortObj = { createdAt: -1 };
+
+  if (sortQuery) {
+    switch (sortQuery) {
+      case "newest":
+        sortObj = { createdAt: -1 };
+        break;
+      case "oldest":
+        sortObj = { createdAt: 1 };
+        break;
+      case "popular":
+        sortObj = { visit: -1 };
+        break;
+      case "trending":
+        sortObj = { visit: -1 };
+        query.createdAt = {
+          $gte: new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
+        };
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (featured) {
+    query.isFeatured = true;
+  }
+
+  const posts = await Post.find(query)
     .populate("user", "username")
+    .sort(sortObj)
     .limit(limit)
     .skip(limit * (page - 1));
 
@@ -95,6 +150,35 @@ export const deletePost = async (req, res) => {
   }
 
   res.status(200).json({ message: "Post deleted successfully" });
+};
+
+export const featurePost = async (req, res) => {
+  const clerkUserId = req.auth.userId;
+  const postId = req.body.postId;
+
+  if (!clerkUserId) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+
+  if (role !== "admin") {
+    return res.status(403).json({ message: "You cannot feature Posts!" });
+  }
+
+  const post = await Post.findById(postId);
+
+  if (!post) {
+    return res.status(404).json({ message: "Post not found" });
+  }
+
+  const updatedPost = await Post.findByIdAndUpdate(
+    postId,
+    { isFeatured: !post.isFeatured },
+    { new: true }
+  );
+
+  res.status(200).json({ message: "Post featured successfully", updatedPost });
 };
 
 const imagekit = new ImageKit({

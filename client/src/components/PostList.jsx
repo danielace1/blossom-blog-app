@@ -1,10 +1,13 @@
-import PostListItem from "./PostListItem";
+import { useSearchParams } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import PostListItem from "./PostListItem";
 import { API_URL } from "../api/api";
 
 const PostList = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const {
     data,
     error,
@@ -14,10 +17,14 @@ const PostList = () => {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["posts"],
+    queryKey: ["posts", searchParams.toString()],
     queryFn: async ({ pageParam = 1 }) => {
+      const searchParamsObj = Object.fromEntries([...searchParams]);
+
+      console.log(searchParamsObj);
+
       const res = await axios.get(`${API_URL}/posts`, {
-        params: { page: pageParam, limit: 5 },
+        params: { page: pageParam, limit: 10, ...searchParamsObj },
       });
 
       return res.data;
@@ -33,7 +40,7 @@ const PostList = () => {
 
   const allPosts = data?.pages?.flatMap((page) => page.posts) || [];
 
-  console.log(allPosts);
+  // console.log(allPosts);
 
   return (
     <InfiniteScroll
